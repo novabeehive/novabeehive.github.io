@@ -1,0 +1,188 @@
+/* SAINT ARDEN UNIVERSITY — Home of the Lions — dark academia, old-money varsity */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap');
+
+:root {
+  /* official school colors */
+  --sau-navy: #14213D;
+  --sau-gold: #C69A3A;
+  --sau-ivory: #F4EFE4;
+  --sau-charcoal: #25282D;
+
+  --bg: var(--sau-navy);
+  --panel: #101a30;
+  --panel-2: #1c2c4e;
+  --border: rgba(198, 154, 58, 0.35);
+  --accent: var(--sau-gold);
+  --accent-2: var(--sau-ivory);
+  --text: var(--sau-ivory);
+  --muted: #9fb0c8;
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Cormorant Garamond', serif;
+
+  /* fraternity identities */
+  --phka-burgundy: #681D2C;
+  --phka-black: #171719;
+  --phka-gold: #C49A52;
+  --drx-cobalt: #2454A6;
+  --drx-white: #F5F5F2;
+  --drx-silver: #A7AFB8;
+
+  /* sorority identities */
+  --alr-emerald: #174C3C;
+  --alr-champagne: #D7B978;
+  --alr-cream: #F5EFE3;
+  --ktm-plum: #593A67;
+  --ktm-blush: #D79AA5;
+  --ktm-pearl: #E8E3E5;
+
+  /* residence hall identities (hex approximated — named colors only, no codes given) */
+  --calder-oxide: #A5432B;
+  --calder-ink: #17130F;
+  --calder-canvas: #EDE6D6;
+  --bellrose-mulberry: #8C2F52;
+  --bellrose-rose: #B97A6D;
+  --bellrose-cream: #F0E4D3;
+}
+
+body {
+  font-size: 17px;
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(198,154,58,0.14), transparent 55%),
+    radial-gradient(ellipse at 50% 110%, rgba(0,0,0,0.5), transparent 60%),
+    var(--bg);
+}
+
+.u-header::before, .profile-header::before {
+  content: "";
+  display: block;
+  height: 4px;
+  width: 100%;
+  margin-bottom: 22px;
+  background: linear-gradient(to right, var(--sau-gold), var(--sau-ivory), var(--sau-gold));
+  opacity: 0.85;
+}
+
+.u-title, .profile-name {
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.u-title::after, .profile-name::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 2px;
+  background: var(--accent);
+  margin-top: 12px;
+}
+
+.u-tagline, .profile-role { font-family: var(--font-body); font-size: 17px; }
+.profile-role { text-transform: uppercase; letter-spacing: 4px; font-weight: 600; color: var(--accent); }
+
+.section-heading {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 3px;
+}
+
+.char-card, .stat-chip, .connections-list li {
+  background: var(--panel-2);
+}
+
+.section-block p::first-letter {
+  font-family: var(--font-heading);
+  font-size: 2.6em;
+  color: var(--accent);
+  float: left;
+  line-height: 0.8;
+  margin: 6px 6px 0 0;
+}
+
+.pill { border-radius: 2px; letter-spacing: 0.5px; }
+.char-link { border-radius: 2px; }
+
+/* ---------- Greek life sub-branding ---------- */
+.frat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  margin-bottom: 36px;
+}
+.frat-card {
+  display: block;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel-2);
+  padding: 20px 20px 18px;
+  border-top: 4px solid var(--accent);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+a.frat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.35);
+  text-decoration: none;
+}
+.frat-card.phka { border-top-color: var(--phka-gold); }
+.frat-card.drx { border-top-color: var(--drx-cobalt); }
+.frat-card.alr { border-top-color: var(--alr-emerald); }
+.frat-card.ktm { border-top-color: var(--ktm-plum); }
+.frat-card.calder { border-top-color: var(--calder-oxide); }
+.frat-card.bellrose { border-top-color: var(--bellrose-mulberry); }
+
+.frat-crest {
+  font-family: var(--font-heading);
+  font-size: 26px;
+  margin-bottom: 6px;
+}
+.frat-card.phka .frat-crest { color: var(--phka-gold); }
+.frat-card.drx .frat-crest { color: var(--drx-cobalt); }
+.frat-card.alr .frat-crest { color: var(--alr-champagne); }
+.frat-card.ktm .frat-crest { color: var(--ktm-blush); }
+.frat-card.calder .frat-crest { color: var(--calder-oxide); }
+.frat-card.bellrose .frat-crest { color: var(--bellrose-rose); }
+
+.frat-enter {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--accent);
+}
+.frat-card.phka .frat-enter { color: var(--phka-gold); }
+.frat-card.drx .frat-enter { color: var(--drx-cobalt); }
+.frat-card.alr .frat-enter { color: var(--alr-champagne); }
+.frat-card.ktm .frat-enter { color: var(--ktm-blush); }
+.frat-card.calder .frat-enter { color: var(--calder-oxide); }
+.frat-card.bellrose .frat-enter { color: var(--bellrose-rose); }
+
+.frat-name { font-weight: 600; margin-bottom: 8px; font-size: 18px; }
+.frat-vibe { color: var(--muted); font-size: 14.5px; line-height: 1.6; margin-bottom: 14px; }
+.frat-swatches { display: flex; gap: 6px; }
+.frat-swatches span {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.2);
+  display: inline-block;
+}
+
+.badge-phka, .badge-drx, .badge-alr, .badge-ktm, .badge-stuco, .badge-calder, .badge-bellrose {
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.badge-phka    { background: var(--phka-black); color: var(--phka-gold); border: 1px solid var(--phka-burgundy); }
+.badge-drx     { background: var(--drx-cobalt); color: var(--drx-white); border: 1px solid var(--drx-silver); }
+.badge-alr     { background: var(--alr-cream); color: var(--alr-emerald); border: 1px solid var(--alr-champagne); }
+.badge-ktm     { background: var(--ktm-pearl); color: var(--ktm-plum); border: 1px solid var(--ktm-blush); }
+.badge-stuco   { background: var(--sau-gold); color: var(--sau-navy); border: 1px solid var(--sau-ivory); }
+.badge-calder  { background: var(--calder-ink); color: var(--calder-canvas); border: 1px solid var(--calder-oxide); }
+.badge-bellrose{ background: var(--bellrose-cream); color: var(--bellrose-mulberry); border: 1px solid var(--bellrose-rose); }
+
+.char-card.frat-phka:hover { border-color: var(--phka-gold); box-shadow: 0 10px 30px rgba(104,29,44,0.35); }
+.char-card.frat-drx:hover  { border-color: var(--drx-cobalt); box-shadow: 0 10px 30px rgba(36,84,166,0.35); }
+.char-card.frat-alr:hover  { border-color: var(--alr-emerald); box-shadow: 0 10px 30px rgba(23,76,60,0.35); }
+.char-card.frat-ktm:hover  { border-color: var(--ktm-plum); box-shadow: 0 10px 30px rgba(89,58,103,0.35); }
+.char-card.frat-stuco:hover{ border-color: var(--sau-gold); box-shadow: 0 10px 30px rgba(198,154,58,0.35); }
+.char-card.frat-calder:hover  { border-color: var(--calder-oxide); box-shadow: 0 10px 30px rgba(165,67,43,0.35); }
+.char-card.frat-bellrose:hover{ border-color: var(--bellrose-mulberry); box-shadow: 0 10px 30px rgba(122,59,90,0.35); }

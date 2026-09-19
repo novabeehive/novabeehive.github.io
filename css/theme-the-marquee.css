@@ -1,0 +1,88 @@
+/* THE MARQUEE — rockstar AU universe. stage lights, tour posters, bands that shouldn't be this good live.
+   Individual bands (Static Echo, etc.) share this theme and differentiate via accent-colored badges/cards. */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+  --bg: #0c0710;
+  --panel: #170f1e;
+  --panel-2: #1f1428;
+  --border: rgba(255, 45, 149, 0.2);
+  --accent: #ff2d95;
+  --accent-2: #ffcc33;
+  --text: #f5eef7;
+  --muted: #93849c;
+  --font-heading: 'Bebas Neue', sans-serif;
+  --font-body: 'Space Mono', monospace;
+}
+
+body {
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(255,45,149,0.14), transparent 45%),
+    radial-gradient(ellipse at 85% 100%, rgba(255,204,51,0.10), transparent 45%),
+    var(--bg);
+}
+
+.u-title, .profile-name {
+  font-family: var(--font-heading);
+  font-size: 56px;
+  letter-spacing: 3px;
+  text-shadow: 0 0 22px rgba(255,45,149,0.5);
+}
+.profile-name { font-size: 44px; }
+
+.u-title::after, .profile-name::after {
+  content: "";
+  display: block;
+  width: 90px;
+  height: 3px;
+  margin-top: 10px;
+  background: repeating-linear-gradient(to right, var(--accent) 0 8px, transparent 8px 14px);
+}
+
+.u-tagline, .profile-role {
+  font-family: var(--font-body);
+  letter-spacing: 0.5px;
+}
+.profile-role {
+  color: var(--accent-2);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 700;
+}
+
+.section-heading { font-family: var(--font-heading); font-size: 20px; letter-spacing: 2px; }
+.section-heading::before { content: "♪ "; color: var(--accent-2); }
+
+/* tracklist-numbered lineup cards */
+.char-grid { counter-reset: track; }
+.char-card {
+  counter-increment: track;
+  position: relative;
+  background: linear-gradient(160deg, var(--panel-2), var(--panel));
+  transition: transform .18s ease, border-color .15s ease, box-shadow .15s ease;
+}
+.char-card:nth-child(odd)  { transform: rotate(-1deg); }
+.char-card:nth-child(even) { transform: rotate(1deg); }
+.char-card:hover {
+  transform: rotate(0deg) translateY(-5px) scale(1.015);
+  box-shadow: 0 14px 34px rgba(255,45,149,0.22);
+}
+.char-name {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  letter-spacing: 1px;
+}
+.char-name::before {
+  content: "TRACK " counter(track, decimal-leading-zero) " \2014 ";
+  display: block;
+  font-family: var(--font-body);
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--accent-2);
+  margin-bottom: 5px;
+}
+
+.stat-chip { background: linear-gradient(160deg, var(--panel-2), var(--panel)); }
+.connections-list li { background: linear-gradient(160deg, var(--panel-2), var(--panel)); }
+
+.hero-thumb.active, .hero-thumb:hover { border-color: var(--accent-2); }
