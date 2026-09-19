@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Space+Grotesk:wght@400;500;600;700&family=Pacifico&display=swap');
 
 :root {
   --bg: #0a0712;
@@ -294,17 +294,29 @@ hr.dotted {
 
 /* ---------- Home banner + requests art ---------- */
 .home-banner-wrap {
-  margin: 4px 0 30px;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  background: #05030a;
+  max-width: 420px;
+  margin: 4px auto 6px;
   cursor: zoom-in;
+  text-align: center;
 }
 .home-banner {
   display: block;
   width: 100%;
   height: auto;
+  filter: drop-shadow(0 10px 28px rgba(0,0,0,0.55));
+}
+.banner-caption {
+  font-family: 'Pacifico', cursive;
+  font-size: 30px;
+  line-height: 1;
+  color: #fff9fc;
+  text-align: center;
+  margin: -8px 0 30px;
+  text-shadow:
+    0 0 6px #fff,
+    0 0 14px var(--cyan-glow),
+    0 0 30px var(--pink),
+    0 0 50px var(--pink);
 }
 
 .requests-row {

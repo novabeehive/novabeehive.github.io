@@ -17,12 +17,16 @@
   </header>
 
   <main>
+    <div class="group-banner-wrap" data-gallery>
+      <img class="group-banner" src="static-echo-group.webp" data-full="static-echo-group.webp" onclick="openLightbox(this)" alt="Static Echo, the full band, out after a show">
+    </div>
+
     <h2 class="section-heading">THE LINEUP</h2>
 
     <div class="char-grid">
 
       <a class="char-card" href="../characters/static-echo/jett-mercer.html">
-        <img class="char-img" src="https://placehold.co/400x520/170f1e/ff2d95?text=Jett+Mercer" alt="Jett Mercer">
+        <img class="char-img" src="../characters/static-echo/jett-03-closeup.webp" alt="Jett Mercer">
         <div class="char-body">
           <div class="char-name">Jett Mercer</div>
           <div class="char-tagline">"just don't make me pretend I'm someone I'm not."</div>
@@ -81,5 +85,14 @@
   </main>
 
 </div>
+
+<div id="lightbox" class="lightbox-overlay" onclick="if(event.target===this) closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+  <button class="lightbox-nav prev" onclick="navLightbox(-1)">&lsaquo;</button>
+  <img id="lightbox-img" src="" alt="">
+  <button class="lightbox-nav next" onclick="navLightbox(1)">&rsaquo;</button>
+</div>
+
+<script src="../js/gallery.js"></script>
 </body>
 </html>
