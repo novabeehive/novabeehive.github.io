@@ -1,0 +1,56 @@
+/* KINKTOBER 2026 — 31 days, 31 one-shot bots. spooky pumpkin-orange & witch-violet. */
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+  --bg: #0d0605;
+  --panel: #1a0d08;
+  --panel-2: #231108;
+  --border: rgba(255, 107, 26, 0.25);
+  --accent: #ff6b1a;
+  --accent-2: #b57bff;
+  --text: #f5e6d8;
+  --muted: #c9a68c;
+  --font-heading: 'Creepster', cursive;
+  --font-body: 'Space Mono', monospace;
+}
+
+body {
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(255,107,26,0.16), transparent 55%),
+    radial-gradient(ellipse at 50% 110%, rgba(181,123,255,0.10), transparent 55%),
+    var(--bg);
+}
+
+.u-title {
+  font-weight: 400;
+  letter-spacing: 2px;
+  font-size: 46px;
+  text-shadow: 0 0 18px rgba(255,107,26,0.55);
+}
+.u-title::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 2px;
+  background: var(--accent);
+  margin-top: 12px;
+}
+
+.section-heading::before { content: "\1F383 "; }
+
+.day-badge {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--bg);
+  background: var(--accent);
+  border-radius: 4px;
+  padding: 3px 8px;
+  margin-bottom: 8px;
+}
+
+.char-card, .stat-chip, .connections-list li {
+  background: linear-gradient(160deg, var(--panel-2), var(--panel));
+}
