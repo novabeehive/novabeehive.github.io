@@ -38,6 +38,18 @@ body {
 
 .section-heading::before { content: "\1F383 "; }
 
+.week-heading {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 24px;
+  letter-spacing: 1px;
+  color: var(--accent-2);
+  border-bottom: 1px dashed var(--border);
+  padding-bottom: 10px;
+  margin: 44px 0 20px;
+}
+.char-grid + .week-heading { margin-top: 50px; }
+
 /* ---------- Kinktober day cards: ribbon badge + candle flicker ---------- */
 .char-grid { gap: 30px; row-gap: 40px; }
 
