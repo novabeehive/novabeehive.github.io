@@ -38,19 +38,80 @@ body {
 
 .section-heading::before { content: "\1F383 "; }
 
+/* ---------- Kinktober day cards: ribbon badge + candle flicker ---------- */
+.char-grid { gap: 30px; row-gap: 40px; }
+
+.char-card {
+  position: relative;
+  overflow: visible;
+  border-radius: 14px;
+  background: linear-gradient(160deg, var(--panel-2), var(--panel));
+  animation: kt-flicker 5s ease-in-out infinite;
+}
+.char-card:hover {
+  transform: translateY(-4px) rotate(0deg);
+}
+
+@keyframes kt-flicker {
+  0%, 100% { box-shadow: 0 0 0 1px var(--border), 0 10px 26px rgba(0,0,0,0.45), 0 0 18px rgba(255,107,26,0.12); }
+  50%      { box-shadow: 0 0 0 1px var(--border), 0 10px 26px rgba(0,0,0,0.45), 0 0 30px rgba(255,107,26,0.28); }
+}
+
+.char-img {
+  border-radius: 14px 14px 0 0;
+}
+
 .day-badge {
-  display: inline-block;
+  position: absolute;
+  top: 14px;
+  left: -10px;
+  z-index: 2;
   font-family: var(--font-body);
   font-weight: 700;
   font-size: 11px;
   letter-spacing: 1px;
-  color: var(--bg);
+  color: #1a0d08;
   background: var(--accent);
-  border-radius: 4px;
-  padding: 3px 8px;
-  margin-bottom: 8px;
+  padding: 6px 16px 6px 18px;
+  border-radius: 0 4px 4px 0;
+  box-shadow: 2px 4px 10px rgba(0,0,0,0.5);
+  transform: rotate(-4deg);
+}
+.day-badge::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 0;
+  border-left: 9px solid transparent;
+  border-top: 6px solid #a33d00;
 }
 
-.char-card, .stat-chip, .connections-list li {
+.char-name {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 28px;
+  letter-spacing: 1px;
+  margin-top: 6px;
+}
+.char-card:hover .char-name {
+  color: var(--accent);
+  text-shadow: 0 0 12px rgba(255,107,26,0.6);
+}
+
+.char-tagline { color: var(--accent-2); }
+
+.char-link {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  letter-spacing: 1px;
+  border: 1px dashed var(--accent-2);
+  color: var(--accent-2);
+  border-radius: 4px;
+}
+.char-link:hover { background: rgba(181,123,255,0.15); }
+
+.stat-chip, .connections-list li {
   background: linear-gradient(160deg, var(--panel-2), var(--panel));
 }
