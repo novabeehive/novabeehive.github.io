@@ -292,6 +292,21 @@ hr.dotted {
 }
 .discord-btn:hover svg { fill: var(--pink); }
 
+.kinktober-btn {
+  display: inline-block;
+  max-width: 200px;
+}
+.kinktober-btn img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform .15s ease, filter .15s ease;
+}
+.kinktober-btn:hover img {
+  transform: translateY(-2px) scale(1.03);
+  filter: drop-shadow(0 0 10px rgba(255,107,26,0.5));
+}
+
 /* ---------- Home banner + requests art ---------- */
 .home-banner-wrap {
   max-width: 420px;
