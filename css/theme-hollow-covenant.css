@@ -51,53 +51,26 @@
   --accent: #A8BDAA; --accent-2: #D5CAE7;
 }
 
-/* ---------- Atmosphere: night glow, drifting embers, creeping mist ---------- */
+/* ---------- Atmosphere: night glow, scattered embers, low mist (static: keeps scrolling light) ---------- */
 body {
   font-size: 18px;
   background:
+    radial-gradient(circle 1.6px at 12% 18%, rgba(232,181,106,0.8), transparent),
+    radial-gradient(circle 1.2px at 28% 62%, rgba(217,102,127,0.7), transparent),
+    radial-gradient(circle 1.8px at 47% 34%, rgba(232,181,106,0.6), transparent),
+    radial-gradient(circle 1.1px at 63% 78%, rgba(255,230,190,0.7), transparent),
+    radial-gradient(circle 1.5px at 78% 24%, rgba(217,102,127,0.6), transparent),
+    radial-gradient(circle 1.2px at 91% 56%, rgba(232,181,106,0.7), transparent),
+    radial-gradient(circle 1.4px at 8% 88%, rgba(255,230,190,0.6), transparent),
+    radial-gradient(circle 1px at 38% 92%, rgba(232,181,106,0.7), transparent),
     radial-gradient(ellipse at 50% -10%, var(--page-glow-a), transparent 55%),
     radial-gradient(ellipse at 10% 108%, var(--page-glow-b), transparent 52%),
     radial-gradient(ellipse at 95% 55%, rgba(90,60,130,0.14), transparent 50%),
     var(--bg);
+  background-size: 520px 520px, 520px 520px, 520px 520px, 520px 520px, 520px 520px, 520px 520px, 520px 520px, 520px 520px, auto, auto, auto, auto;
+  background-repeat: repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, no-repeat, no-repeat, no-repeat, no-repeat;
 }
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0.6;
-  background-image:
-    radial-gradient(circle 1.6px at 12% 18%, rgba(232,181,106,0.9), transparent),
-    radial-gradient(circle 1.2px at 28% 62%, rgba(217,102,127,0.8), transparent),
-    radial-gradient(circle 1.8px at 47% 34%, rgba(232,181,106,0.7), transparent),
-    radial-gradient(circle 1.1px at 63% 78%, rgba(255,230,190,0.8), transparent),
-    radial-gradient(circle 1.5px at 78% 24%, rgba(217,102,127,0.7), transparent),
-    radial-gradient(circle 1.2px at 91% 56%, rgba(232,181,106,0.8), transparent),
-    radial-gradient(circle 1.4px at 8% 88%, rgba(255,230,190,0.7), transparent),
-    radial-gradient(circle 1px at 38% 92%, rgba(232,181,106,0.8), transparent);
-  background-size: 520px 520px;
-  animation: hc-embers 70s linear infinite;
-}
-body::after {
-  content: "";
-  position: fixed;
-  left: -20%;
-  right: -20%;
-  bottom: -12%;
-  height: 55vh;
-  z-index: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse at 22% 80%, rgba(170,160,205,0.11), transparent 62%),
-    radial-gradient(ellipse at 72% 92%, rgba(170,160,205,0.09), transparent 58%);
-  filter: blur(20px);
-  animation: hc-fog 30s ease-in-out infinite alternate;
-}
-.u-shell { position: relative; z-index: 1; }
 
-@keyframes hc-embers { to { background-position: 0 -520px; } }
-@keyframes hc-fog { from { transform: translateX(-5%); } to { transform: translateX(5%); } }
 @keyframes hc-rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes hc-spin { to { transform: rotate(360deg); } }
 @keyframes hc-spin-rev { to { transform: rotate(-360deg); } }
@@ -477,7 +450,7 @@ a.house-card:hover .house-sigil .ring { animation-duration: 12s; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  body::before, body::after, .house-card, .house-sigil .ring, .arcane .a-outer, .arcane .a-inner {
+  .house-card, .house-sigil .ring, .arcane .a-outer, .arcane .a-inner {
     animation: none !important;
   }
 }
