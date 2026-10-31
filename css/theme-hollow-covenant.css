@@ -608,10 +608,35 @@ body[class] .house-hero .u-title { font-family: var(--font-display); font-weight
 }
 .lore-item[open] .lore-chev { transform: rotate(225deg) translateY(-2px); }
 
-.lore-body { padding: 4px 28px 26px 86px; animation: hc-unfurl .45s ease; }
+.lore-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 230px;
+  gap: 4px 30px;
+  align-items: start;
+  padding: 4px 28px 26px 86px;
+  animation: hc-unfurl .45s ease;
+}
+.lore-text { grid-column: 1; }
 .lore-body p { margin: 0 0 14px; line-height: 1.85; }
+.lore-art {
+  grid-column: 2;
+  grid-row: 1;
+  margin: 4px 0 0;
+}
+.lore-art img {
+  display: block;
+  width: 100%;
+  height: auto;
+  cursor: zoom-in;
+  border: 1.5px solid var(--accent);
+  border-radius: 115px 115px 12px 12px / 90px 90px 12px 12px;
+  box-shadow: 0 0 0 5px rgba(var(--line-rgb), 0.10), 0 14px 34px rgba(0,0,0,0.55), 0 0 30px rgba(var(--line-rgb), 0.12);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.lore-art img:hover { transform: translateY(-3px); box-shadow: 0 0 0 5px rgba(var(--line-rgb), 0.16), 0 18px 40px rgba(0,0,0,0.6), 0 0 38px rgba(var(--line-rgb), 0.28); }
 .lore-callout {
-  margin: 22px 0 4px !important;
+  grid-column: 1 / -1;
+  margin: 18px 0 4px !important;
   padding: 16px 20px;
   text-align: center;
   font-size: 21px;
@@ -662,7 +687,8 @@ a.compass-item:hover { transform: translateY(-4px); text-decoration: none; box-s
   .lore-num { width: 38px; height: 38px; font-size: 12px; }
   .lore-title { font-size: 14px; letter-spacing: 2px; }
   .lore-tag { font-size: 15px; }
-  .lore-body { padding: 2px 18px 22px 18px; }
+  .lore-body { display: block; padding: 2px 18px 22px 18px; }
+  .lore-art { max-width: 230px; margin: 8px auto 18px; }
   .lore-callout { font-size: 19px; }
 
   .u-title { font-size: 26px; letter-spacing: 2px; }
