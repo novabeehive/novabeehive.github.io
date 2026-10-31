@@ -527,6 +527,104 @@ body[class] .house-hero .u-title { font-family: var(--font-display); font-weight
   opacity: 0.8;
 }
 
+/* ---------- Lore accordion (world page) ---------- */
+.lore-toolbar { display: flex; justify-content: flex-end; gap: 10px; margin: -6px 0 14px; }
+.lore-btn {
+  padding: 6px 14px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-family: var(--font-heading);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color .2s ease, border-color .2s ease;
+}
+.lore-btn:hover { color: var(--accent); border-color: var(--accent); }
+
+.lore-list { display: flex; flex-direction: column; gap: 14px; margin-bottom: 26px; }
+.lore-item {
+  position: relative;
+  background:
+    radial-gradient(ellipse at 0% 0%, rgba(var(--line-rgb), 0.07), transparent 60%),
+    linear-gradient(180deg, #1a1220, #120c17);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  transition: border-color .25s ease, box-shadow .25s ease;
+}
+.lore-item::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 14px; bottom: 14px;
+  width: 3px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, transparent, var(--accent), var(--accent-2), transparent);
+  opacity: 0.35;
+  transition: opacity .25s ease;
+}
+.lore-item[open] { border-color: rgba(var(--line-rgb), 0.5); box-shadow: 0 0 34px rgba(var(--line-rgb), 0.12), 0 12px 34px rgba(0,0,0,0.5); }
+.lore-item[open]::before { opacity: 1; }
+.lore-item summary {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 22px;
+  cursor: pointer;
+  list-style: none;
+}
+.lore-item summary::-webkit-details-marker { display: none; }
+.lore-item summary:hover .lore-title { color: #f6e6c0; }
+
+.lore-num {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  box-shadow: 0 0 0 4px rgba(var(--line-rgb), 0.10), inset 0 0 14px rgba(var(--line-rgb), 0.18);
+  font-family: var(--font-heading);
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: var(--accent);
+}
+.lore-head { flex: 1; min-width: 0; }
+.lore-title { display: block; font-family: var(--font-heading); font-size: 17px; letter-spacing: 3px; text-transform: uppercase; color: var(--text); transition: color .2s ease; }
+.lore-tag { display: block; margin-top: 3px; font-size: 17px; font-style: italic; color: var(--accent-2); }
+.lore-chev {
+  flex-shrink: 0;
+  width: 11px;
+  height: 11px;
+  margin-right: 4px;
+  border-right: 2px solid var(--accent);
+  border-bottom: 2px solid var(--accent);
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform .3s ease;
+}
+.lore-item[open] .lore-chev { transform: rotate(225deg) translateY(-2px); }
+
+.lore-body { padding: 4px 28px 26px 86px; animation: hc-unfurl .45s ease; }
+.lore-body p { margin: 0 0 14px; line-height: 1.85; }
+.lore-callout {
+  margin: 22px 0 4px !important;
+  padding: 16px 20px;
+  text-align: center;
+  font-size: 21px;
+  font-style: italic;
+  line-height: 1.6 !important;
+  color: var(--text);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(90deg, transparent, rgba(var(--line-rgb), 0.08), transparent);
+}
+.lore-callout strong { font-weight: 500; }
+@keyframes hc-unfurl { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+
 /* ---------- Realm map + compass ---------- */
 .hc-map { margin: 0 0 26px; text-align: center; }
 .hc-map img {
@@ -560,6 +658,13 @@ a.compass-item:hover { transform: translateY(-4px); text-decoration: none; box-s
 .compass-desc { display: block; font-size: 16px; font-style: italic; line-height: 1.5; color: var(--muted); }
 
 @media (max-width: 640px) {
+  .lore-item summary { gap: 12px; padding: 14px 14px; }
+  .lore-num { width: 38px; height: 38px; font-size: 12px; }
+  .lore-title { font-size: 14px; letter-spacing: 2px; }
+  .lore-tag { font-size: 15px; }
+  .lore-body { padding: 2px 18px 22px 18px; }
+  .lore-callout { font-size: 19px; }
+
   .u-title { font-size: 26px; letter-spacing: 2px; }
   .hc-header .u-title { font-size: 28px; letter-spacing: 2px; }
   .hc-quote { font-size: 20px; }
@@ -571,7 +676,7 @@ a.compass-item:hover { transform: translateY(-4px); text-decoration: none; box-s
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .house-card, .house-sigil .ring, .arcane .a-outer, .arcane .a-inner {
+  .lore-body, .house-card, .house-sigil .ring, .arcane .a-outer, .arcane .a-inner {
     animation: none !important;
   }
 }

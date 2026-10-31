@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The World of Briarcombe // The Hollow Covenant</title>
 <link rel="stylesheet" href="../css/shared.css">
-<link rel="stylesheet" href="../css/theme-hollow-covenant.css?v=7">
+<link rel="stylesheet" href="../css/theme-hollow-covenant.css?v=8">
 </head>
 <body>
 <div class="u-shell">
@@ -36,17 +36,107 @@
       </div>
     </section>
 
-    <h2 class="section-heading">MORE WORLD LORE</h2>
-    <div class="placeholder-note">
-      ⚠ more of the world is still being written — history, The Drawing, supernatural biology, marriage traditions, and magical rules will be added here.
+    <h2 class="section-heading">THE LORE OF BRIARCOMBE</h2>
+    <div class="lore-toolbar">
+      <button type="button" class="lore-btn" data-lore="open">Open all</button>
+      <button type="button" class="lore-btn" data-lore="close">Close all</button>
     </div>
-    <div class="hc-topics">
-      <span class="hc-topic">History of the Concordat</span>
-      <span class="hc-topic">The Drawing</span>
-      <span class="hc-topic">Demon Biology</span>
-      <span class="hc-topic">Marriage Traditions</span>
-      <span class="hc-topic">Wards &amp; Magic</span>
-      <span class="hc-topic">Briarcombe Locations</span>
+    <div class="lore-list">
+      <details class="lore-item" id="briarcombe-concordat" open>
+        <summary><span class="lore-num">I</span><span class="lore-head"><span class="lore-title">The Briarcombe Concordat</span><span class="lore-tag">An ancient peace. An enduring obligation.</span></span><span class="lore-chev" aria-hidden="true"></span></summary>
+        <div class="lore-body">
+          <p>Centuries ago, a devastating war between humans and demons threatened the survival of both peoples. Neither side could claim a lasting victory. From the destruction emerged the <strong>Briarcombe Concordat</strong>, a magical treaty establishing four ruling demon houses and the territories they would protect.</p>
+          <p>House Duskryn claimed the northern forests, Serevain the prosperous south, Kharrow the western stormlands, and Elarith the eastern valleys.</p>
+          <p>In exchange for supernatural protection, human settlements agreed to participate in a system of ceremonial marriage arrangements. These unions provide the magical stability necessary to maintain the wards shielding civilization from the dangers beyond.</p>
+          <p>The Concordat has preserved relative peace for generations, but its methods remain controversial. Some consider it the foundation of civilization. Others see an ancient injustice disguised as tradition.</p>
+          <p class="lore-callout"><strong>The war ended centuries ago. The price of peace is still being paid.</strong></p>
+        </div>
+      </details>
+
+      <details class="lore-item" id="drawing">
+        <summary><span class="lore-num">II</span><span class="lore-head"><span class="lore-title">The Drawing</span><span class="lore-tag">An honor to some. A sentence to others.</span></span><span class="lore-chev" aria-hidden="true"></span></summary>
+        <div class="lore-body">
+          <p>Every seven years, the settlements bound by the Concordat gather for <strong>The Drawing</strong>, a solemn public ceremony held beneath Briarcombe's historic clocktower.</p>
+          <p>Eligible unmarried humans aged twenty-one and older are entered into a ceremonial lottery. When a ruling demon house requires a new consort, a name is selected from the registry and publicly assigned to that house.</p>
+          <p>For some families, selection promises prestige, security, and the possibility of an extraordinarily long life. For others, it means leaving behind familiar surroundings for an uncertain future among beings who have lived for centuries.</p>
+          <p>A selected candidate becomes a prospective spouse, not an automatically bonded partner. The final supernatural vow requires conscious acceptance from both parties.</p>
+          <p>Nevertheless, the weight of public expectation can be difficult to escape.</p>
+          <p>And among all four houses, one name inspires particular dread.</p>
+          <p class="lore-callout"><strong>House Duskryn. Three prospective consorts. Three deaths. No completed marriage.</strong></p>
+        </div>
+      </details>
+
+      <details class="lore-item" id="marriage-bonds">
+        <summary><span class="lore-num">III</span><span class="lore-head"><span class="lore-title">The Marriage Bonds</span><span class="lore-tag">Two lives. One vow. A kingdom's protection.</span></span><span class="lore-chev" aria-hidden="true"></span></summary>
+        <div class="lore-body">
+          <p>Marriage bonds are ancient supernatural agreements between Highborn Demons and their human consorts.</p>
+          <p>Through a ceremonial exchange of vows and binding magic, a human becomes a living anchor for demonic power, stabilizing the territorial wards that protect nearby settlements.</p>
+          <p>In return, the human receives extended longevity, resistance to certain supernatural illnesses, and protection from hostile magical influences.</p>
+          <p>The bond may also allow partners to sense significant disturbances in one another's magical condition.</p>
+          <p>But the magic has limitations.</p>
+          <p class="lore-callout"><strong>A marriage bond cannot create love, compel obedience, manufacture attraction, or grant ownership over another person.</strong></p>
+          <p>Some bonded couples become devoted partners. Others maintain practical arrangements built on duty rather than affection.</p>
+          <p>The bond may sustain the territory regardless of whether the marriage itself is happy.</p>
+          <p>And severing such an agreement is neither simple nor without consequences.</p>
+        </div>
+      </details>
+
+      <details class="lore-item" id="wards-and-wilderness">
+        <summary><span class="lore-num">IV</span><span class="lore-head"><span class="lore-title">The Wards &amp; Wilderness</span><span class="lore-tag">Beyond the boundary, the old world waits.</span></span><span class="lore-chev" aria-hidden="true"></span></summary>
+        <div class="lore-body">
+          <p>The four territories are protected by an interconnected network of ancient wardstones, binding sigils, and territorial magic.</p>
+          <p>These defenses repel or discourage hostile supernatural entities, allowing human settlements to flourish beneath their protection.</p>
+          <p>Beyond the wards lie forgotten ruins, ancient forests, dangerous creatures, wandering spirits, and supernatural beings whose existence predates the Concordat itself.</p>
+          <p>Not every creature is hostile. Some possess intelligence, established territories, and customs of their own.</p>
+          <p>The protected roads allow merchants, travelers, and residents to move between settlements. But the deeper wilderness remains unpredictable, especially after dark.</p>
+          <p>When a ward begins to weaken, the signs are often subtle: unnatural cold, unusual animal behavior, distorted sounds, and sightings of creatures near previously safe routes.</p>
+          <p class="lore-callout"><strong>The wards are powerful. They are not infallible.</strong></p>
+          <p>And in the northern forests, House Duskryn's defenses have begun to deteriorate.</p>
+        </div>
+      </details>
+
+      <details class="lore-item" id="concordat-council">
+        <summary><span class="lore-num">V</span><span class="lore-head"><span class="lore-title">The Concordat Council</span><span class="lore-tag">Eight voices. Four houses. One fragile peace.</span></span><span class="lore-chev" aria-hidden="true"></span></summary>
+        <div class="lore-body">
+          <p>The Concordat Council governs matters affecting the treaty and its protected territories.</p>
+          <p>Its eight voting members consist of the four ruling demon lords and four appointed human representatives.</p>
+          <p>Each house retains authority over its own territory, but matters involving shared security, treaty violations, political disputes, and supernatural emergencies fall under the Council's jurisdiction.</p>
+          <p>Ordinary decisions require five votes. Major amendments to the Concordat require six.</p>
+          <p>The Council may authorize investigations, demand corrective action, impose penalties, or intervene when a house fails its obligations.</p>
+          <p>Yet its members rarely agree on what justice requires.</p>
+          <p>Some prioritize tradition. Others advocate reform. Political alliances shift, old grievances resurface, and the interests of human settlements do not always align with those of their supernatural protectors.</p>
+          <p class="lore-callout"><strong>The Council preserves the peace. Whether it can preserve the people's trust is another matter.</strong></p>
+        </div>
+      </details>
+
+      <details class="lore-item" id="highborn-demons">
+        <summary><span class="lore-num">VI</span><span class="lore-head"><span class="lore-title">The Highborn Demons</span><span class="lore-tag">Ancient blood. Mortal imperfections.</span></span><span class="lore-chev" aria-hidden="true"></span></summary>
+        <div class="lore-body">
+          <p>Highborn Demons are powerful, long-lived supernatural beings whose lifespans commonly extend several centuries.</p>
+          <p>They possess enhanced physical abilities, heightened senses, accelerated healing, and magical affinities shaped by their bloodlines.</p>
+          <p>Most maintain a humanlike appearance but can reveal a larger, visibly demonic true form. Horns, claws, altered eyes, and supernatural markings vary between individuals.</p>
+          <p>Despite their abilities, Highborn Demons are neither immortal nor invulnerable. Injury, illness, magical exhaustion, and violence can kill them.</p>
+          <p>Their instincts may influence territorial awareness, sensory perception, and protective behavior, but they do not determine personality or morality.</p>
+          <p class="lore-callout"><strong>A demon may be compassionate or cruel, honorable or corrupt, loving or indifferent. Power does not decide character.</strong></p>
+        </div>
+      </details>
+
+      <details class="lore-item" id="life-in-briarcombe">
+        <summary><span class="lore-num">VII</span><span class="lore-head"><span class="lore-title">Life in Briarcombe</span><span class="lore-tag">Where the extraordinary becomes ordinary.</span></span><span class="lore-chev" aria-hidden="true"></span></summary>
+        <div class="lore-body">
+          <p>Beyond the ancient treaties and supernatural politics, Briarcombe is a living community.</p>
+          <p>Its cobblestone streets wind between gothic stone buildings, bustling markets, cafés, schools, workshops, and homes illuminated by warm lantern light.</p>
+          <p>Modern conveniences coexist with centuries-old traditions. Residents work, study, celebrate festivals, raise families, and argue over entirely ordinary things.</p>
+          <p>Humans and demons interact through trade, employment, education, medicine, diplomacy, and personal relationships.</p>
+          <p>Opinions about the ruling houses vary. Some residents admire their protectors. Others resent their authority or question the fairness of The Drawing.</p>
+          <p>Not everyone living beneath the Concordat agrees about the price of safety.</p>
+          <p>And not every story in Briarcombe begins with a demon lord.</p>
+          <p class="lore-callout"><strong>Some begin with an ordinary person making an extraordinary choice.</strong></p>
+        </div>
+      </details>
+    </div>
+    <div class="placeholder-note">
+      ⚠ more of the world is still being written — new entries will be added here.
     </div>
 
     <div class="hc-stamp">
@@ -65,5 +155,21 @@
 </div>
 
 <script src="../js/gallery.js"></script>
+<script>
+(function () {
+  var items = document.querySelectorAll(".lore-item");
+  document.querySelectorAll("[data-lore]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var open = btn.getAttribute("data-lore") === "open";
+      items.forEach(function (d) { d.open = open; });
+    });
+  });
+  if (location.hash) {
+    var t = document.querySelector(".lore-item" + location.hash);
+    if (t) { t.open = true; setTimeout(function () { t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 300); }
+  }
+})();
+</script>
+
 </body>
 </html>
