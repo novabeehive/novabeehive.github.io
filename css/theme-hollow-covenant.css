@@ -1,35 +1,109 @@
-/* THE HOLLOW COVENANT — Briarcombe. modern gothic, demon houses, an ancient treaty. */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+/* THE HOLLOW COVENANT — Briarcombe. gothic magic: arched windows, sigils, drifting mist and ember-light. */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
 
 :root {
-  --bg: #0d090f;
-  --panel: #150e18;
-  --panel-2: #1c1321;
+  --bg: #0b080e;
+  --panel: #140e18;
+  --panel-2: #1a1220;
   --border: rgba(212, 175, 106, 0.22);
   --accent: #d4af6a;
   --accent-2: #d9667f;
   --text: #ece0e4;
   --muted: #a8949f;
-  --h-deep: #5a2234;
   --font-heading: 'Cinzel', serif;
+  --font-display: 'Cinzel Decorative', 'Cinzel', serif;
   --font-body: 'Cormorant Garamond', serif;
+
+  /* per-house values (overridden by .duskryn / .serevain / .kharrow / .elarith) */
+  --h-c1: #3a2440;
+  --h-c2: #8a5a7a;
+  --h-c3: #d9c2cf;
+  --h-bright: #d9c2cf;
+  --h-glow: rgba(217, 102, 127, 0.35);
+  --h-tint: rgba(90, 50, 100, 0.25);
+  --page-glow-a: rgba(232, 160, 100, 0.13);
+  --page-glow-b: rgba(201, 84, 108, 0.12);
 }
 
+/* ---------- Official house palettes ---------- */
+.duskryn {
+  --h-c1: #171820; --h-c2: #68466F; --h-c3: #A6A8BB;
+  --h-bright: #A6A8BB; --h-tint: rgba(104,70,111,0.30); --h-glow: rgba(135,95,145,0.55);
+  --page-glow-a: rgba(104,70,111,0.24); --page-glow-b: rgba(166,168,187,0.08);
+  --accent: #A6A8BB; --accent-2: #b595bd;
+}
+.serevain {
+  --h-c1: #681D32; --h-c2: #C6A269; --h-c3: #F0E0C7;
+  --h-bright: #C6A269; --h-tint: rgba(104,29,50,0.50); --h-glow: rgba(198,162,105,0.45);
+  --page-glow-a: rgba(198,162,105,0.14); --page-glow-b: rgba(104,29,50,0.32);
+  --accent: #C6A269; --accent-2: #F0E0C7;
+}
+.kharrow {
+  --h-c1: #253B53; --h-c2: #8395A5; --h-c3: #D0D5D8;
+  --h-bright: #8395A5; --h-tint: rgba(37,59,83,0.60); --h-glow: rgba(131,149,165,0.50);
+  --page-glow-a: rgba(37,59,83,0.45); --page-glow-b: rgba(131,149,165,0.10);
+  --accent: #8395A5; --accent-2: #D0D5D8;
+}
+.elarith {
+  --h-c1: #A8BDAA; --h-c2: #D5CAE7; --h-c3: #F1EEE8;
+  --h-bright: #D5CAE7; --h-tint: rgba(168,189,170,0.14); --h-glow: rgba(213,202,231,0.50);
+  --page-glow-a: rgba(213,202,231,0.14); --page-glow-b: rgba(168,189,170,0.12);
+  --accent: #A8BDAA; --accent-2: #D5CAE7;
+}
+
+/* ---------- Atmosphere: night glow, drifting embers, creeping mist ---------- */
 body {
   font-size: 18px;
   background:
-    radial-gradient(ellipse at 50% -8%, rgba(232,160,100,0.14), transparent 52%),
-    radial-gradient(ellipse at 12% 105%, rgba(201,84,108,0.12), transparent 50%),
-    radial-gradient(ellipse at 92% 60%, rgba(90,60,120,0.12), transparent 50%),
+    radial-gradient(ellipse at 50% -10%, var(--page-glow-a), transparent 55%),
+    radial-gradient(ellipse at 10% 108%, var(--page-glow-b), transparent 52%),
+    radial-gradient(ellipse at 95% 55%, rgba(90,60,130,0.14), transparent 50%),
     var(--bg);
 }
-
-/* ---------- Title / header ---------- */
-.u-title {
-  font-weight: 600;
-  letter-spacing: 4px;
-  font-size: 40px;
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.6;
+  background-image:
+    radial-gradient(circle 1.6px at 12% 18%, rgba(232,181,106,0.9), transparent),
+    radial-gradient(circle 1.2px at 28% 62%, rgba(217,102,127,0.8), transparent),
+    radial-gradient(circle 1.8px at 47% 34%, rgba(232,181,106,0.7), transparent),
+    radial-gradient(circle 1.1px at 63% 78%, rgba(255,230,190,0.8), transparent),
+    radial-gradient(circle 1.5px at 78% 24%, rgba(217,102,127,0.7), transparent),
+    radial-gradient(circle 1.2px at 91% 56%, rgba(232,181,106,0.8), transparent),
+    radial-gradient(circle 1.4px at 8% 88%, rgba(255,230,190,0.7), transparent),
+    radial-gradient(circle 1px at 38% 92%, rgba(232,181,106,0.8), transparent);
+  background-size: 520px 520px;
+  animation: hc-embers 70s linear infinite;
 }
+body::after {
+  content: "";
+  position: fixed;
+  left: -20%;
+  right: -20%;
+  bottom: -12%;
+  height: 55vh;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 22% 80%, rgba(170,160,205,0.11), transparent 62%),
+    radial-gradient(ellipse at 72% 92%, rgba(170,160,205,0.09), transparent 58%);
+  filter: blur(20px);
+  animation: hc-fog 30s ease-in-out infinite alternate;
+}
+.u-shell { position: relative; z-index: 1; }
+
+@keyframes hc-embers { to { background-position: 0 -520px; } }
+@keyframes hc-fog { from { transform: translateX(-5%); } to { transform: translateX(5%); } }
+@keyframes hc-rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes hc-spin { to { transform: rotate(360deg); } }
+@keyframes hc-spin-rev { to { transform: rotate(-360deg); } }
+
+/* ---------- Header ---------- */
+.u-title { font-weight: 600; letter-spacing: 4px; font-size: 40px; }
 .u-title::after {
   content: "";
   display: block;
@@ -38,42 +112,77 @@ body {
   margin-top: 14px;
   background: linear-gradient(to right, var(--accent), transparent);
 }
-.u-title .house-glyph { color: var(--accent); margin-right: 8px; font-size: 0.9em; }
 .u-tagline { font-size: 19px; font-style: italic; }
 
 .hc-header { text-align: center; }
 .hc-header .back-link { display: block; text-align: left; }
-.hc-header .u-title::after {
-  width: 180px;
-  margin: 14px auto 0;
-  background: linear-gradient(to right, transparent, var(--accent), transparent);
-}
 
 .hc-banner {
   position: relative;
   max-width: 900px;
-  margin: 6px auto 28px;
+  margin: 8px auto 40px;
   border: 1px solid var(--border);
   border-radius: 14px;
+  outline: 1px solid rgba(212,175,106,0.30);
+  outline-offset: 8px;
   overflow: hidden;
-  box-shadow: 0 18px 50px rgba(0,0,0,0.55), 0 0 44px rgba(201,84,108,0.14);
+  box-shadow: 0 20px 56px rgba(0,0,0,0.6), 0 0 50px rgba(201,84,108,0.16);
 }
 .hc-banner img { display: block; width: 100%; height: auto; }
 .hc-banner::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, transparent 60%, rgba(13,9,15,0.7));
+  background: linear-gradient(to bottom, transparent 58%, rgba(11,8,14,0.75));
   pointer-events: none;
+}
+
+.hc-title-wrap { position: relative; isolation: isolate; padding: 22px 0 10px; }
+.arcane {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(560px, 120%);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  pointer-events: none;
+  color: var(--accent);
+  opacity: 0.18;
+}
+.arcane svg { width: 100%; height: 100%; }
+.arcane .a-outer { transform-box: fill-box; transform-origin: center; animation: hc-spin 120s linear infinite; }
+.arcane .a-inner { transform-box: fill-box; transform-origin: center; animation: hc-spin-rev 160s linear infinite; }
+
+.hc-header .u-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 46px;
+  letter-spacing: 3px;
+  color: #f1deb4;
+  filter: drop-shadow(0 0 18px rgba(212,175,106,0.28));
+}
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .hc-header .u-title {
+    background: linear-gradient(180deg, #fbefd2 0%, #d4af6a 52%, #c4566e 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+.hc-header .u-title::after {
+  width: 200px;
+  margin: 16px auto 0;
+  background: linear-gradient(to right, transparent, var(--accent), transparent);
 }
 
 .hc-eyebrow {
   font-family: var(--font-heading);
   font-size: 12px;
-  letter-spacing: 5px;
+  letter-spacing: 6px;
   text-transform: uppercase;
   color: var(--accent-2);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 .hc-kicker {
   font-family: var(--font-heading);
@@ -84,157 +193,291 @@ body {
   margin: 6px 0 0;
 }
 .hc-quote {
-  max-width: 560px;
-  margin: 24px auto 0;
-  padding: 14px 24px;
+  max-width: 580px;
+  margin: 26px auto 0;
+  padding: 16px 26px;
   border-left: 2px solid var(--accent);
   border-right: 2px solid var(--accent);
-  background: rgba(212,175,106,0.05);
+  background: linear-gradient(90deg, rgba(212,175,106,0.08), rgba(212,175,106,0.02) 50%, rgba(212,175,106,0.08));
   font-style: italic;
-  font-size: 22px;
+  font-size: 23px;
   line-height: 1.55;
   color: var(--text);
+  text-shadow: 0 0 22px rgba(212,175,106,0.18);
 }
 
-/* ---------- Sections ---------- */
+/* ---------- Section headings: centered with fading rules ---------- */
 .section-heading {
-  font-size: 14px;
-  letter-spacing: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin: 46px 0 24px;
+  padding-bottom: 0;
+  border-bottom: 0;
+  text-align: center;
+  font-size: 13px;
+  letter-spacing: 5px;
 }
-.section-heading::before { content: "\2726  "; color: var(--accent-2); }
+.section-heading::before,
+.section-heading::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+}
+.section-heading::before { background: linear-gradient(to right, transparent, var(--accent)); }
+.section-heading::after  { background: linear-gradient(to left, transparent, var(--accent)); }
 
-.hc-callout {
-  margin-top: 10px;
-  padding: 14px 18px;
+/* ---------- The Concordat: a sealed treaty ---------- */
+.hc-treaty {
+  position: relative;
+  margin: 6px 0 52px;
+  padding: 34px 36px 42px;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(212,175,106,0.09), transparent 60%),
+    linear-gradient(180deg, #1a1220, #120c17);
   border: 1px solid var(--border);
-  border-left: 3px solid var(--accent-2);
-  border-radius: 6px;
-  background: var(--panel-2);
+  border-radius: 4px;
+  box-shadow: 0 16px 44px rgba(0,0,0,0.5), inset 0 0 70px rgba(0,0,0,0.5);
+}
+.hc-treaty::before {
+  content: "";
+  position: absolute;
+  inset: 9px;
+  border: 1px solid rgba(212,175,106,0.30);
+  pointer-events: none;
+}
+.hc-treaty p { position: relative; margin: 0 0 14px; line-height: 1.85; }
+.hc-treaty p:first-of-type::first-letter {
+  float: left;
+  margin: 6px 12px 0 0;
+  font-family: var(--font-display);
+  font-size: 3.4em;
+  line-height: 0.8;
+  color: var(--accent);
+}
+.hc-clause {
+  position: relative;
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  text-align: center;
   font-style: italic;
+  font-size: 21px;
   color: var(--text);
 }
-.hc-callout strong {
+.hc-clause strong {
   display: block;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
   font-family: var(--font-heading);
   font-style: normal;
-  font-size: 11px;
-  letter-spacing: 3px;
   font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 4px;
   color: var(--accent-2);
 }
+.hc-seal {
+  position: absolute;
+  right: 28px;
+  bottom: -30px;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 3px double rgba(246,217,222,0.30);
+  background: radial-gradient(circle at 34% 28%, #d4506a, #8a1a35 62%, #5a0f22);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.6), inset 0 -4px 8px rgba(0,0,0,0.35), inset 0 3px 6px rgba(255,255,255,0.18);
+  color: #f6d9de;
+  font-size: 28px;
+  transform: rotate(-10deg);
+}
 
+/* ---------- House cards: arched windows with a glowing sigil ---------- */
+.house-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 28px;
+  margin: 8px 0 20px;
+}
+.house-card {
+  position: relative;
+  display: block;
+  text-align: center;
+  padding: 50px 22px 26px;
+  border: 1.5px solid transparent;
+  border-radius: 50% 50% 16px 16px / 130px 130px 16px 16px;
+  background:
+    linear-gradient(180deg, var(--h-tint), transparent 62%) padding-box,
+    linear-gradient(#130d17, #130d17) padding-box,
+    linear-gradient(165deg, var(--h-c1), var(--h-c2) 45%, var(--h-c3)) border-box;
+  box-shadow: 0 14px 34px rgba(0,0,0,0.5), inset 0 0 44px rgba(0,0,0,0.35);
+  transition: transform .22s ease, box-shadow .22s ease;
+  animation: hc-rise .8s ease backwards;
+}
+.house-card:nth-child(2) { animation-delay: .12s; }
+.house-card:nth-child(3) { animation-delay: .24s; }
+.house-card:nth-child(4) { animation-delay: .36s; }
+a.house-card:hover {
+  transform: translateY(-8px);
+  text-decoration: none;
+  box-shadow: 0 0 38px var(--h-glow), 0 22px 46px rgba(0,0,0,0.55), inset 0 0 44px rgba(0,0,0,0.2);
+}
+a.house-card:hover .house-sigil { filter: drop-shadow(0 0 16px var(--h-glow)) brightness(1.15); }
+a.house-card:hover .house-sigil .ring { animation-duration: 12s; }
+
+.house-sigil {
+  width: 92px;
+  height: 92px;
+  margin: 0 auto 16px;
+  color: var(--h-bright);
+  filter: drop-shadow(0 0 10px var(--h-glow));
+  transition: filter .22s ease;
+}
+.house-sigil svg { display: block; width: 100%; height: 100%; }
+.house-sigil .ring { transform-box: fill-box; transform-origin: center; animation: hc-spin 50s linear infinite; }
+
+.house-name {
+  font-family: var(--font-heading);
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text);
+}
+.house-epithet { margin: 2px 0 4px; font-size: 19px; font-style: italic; color: var(--h-bright); }
+.house-rule {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 68%;
+  margin: 10px auto 12px;
+  font-size: 9px;
+  color: var(--h-bright);
+}
+.house-rule::before,
+.house-rule::after { content: ""; flex: 1; height: 1px; }
+.house-rule::before { background: linear-gradient(to right, transparent, var(--h-bright)); }
+.house-rule::after  { background: linear-gradient(to left, transparent, var(--h-bright)); }
+.house-domain {
+  margin-bottom: 8px;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text);
+}
+.house-vibe { min-height: 1.3em; margin-bottom: 16px; font-size: 17px; font-style: italic; color: var(--muted); }
+.house-lord { margin-bottom: 20px; font-size: 18px; color: var(--text); }
+.house-lord small {
+  display: block;
+  margin-bottom: 2px;
+  font-family: var(--font-heading);
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: var(--muted);
+}
+.house-enter {
+  font-family: var(--font-heading);
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: var(--h-bright);
+}
+
+/* ---------- Creators note + stamp ---------- */
 .hc-creator {
-  padding: 18px 20px;
+  padding: 20px 24px;
   border: 1px dashed var(--accent);
   border-radius: 8px;
   background: rgba(212,175,106,0.05);
 }
 .hc-creator p { margin: 0 0 12px; line-height: 1.75; }
-.hc-creator p:last-child { margin-bottom: 0; color: var(--muted); font-size: 16px; }
+.hc-creator p:last-child { margin-bottom: 0; font-size: 16px; color: var(--muted); }
 
 .hc-stamp {
-  margin-top: 48px;
-  padding-top: 26px;
+  margin-top: 52px;
+  padding-top: 28px;
   border-top: 1px solid var(--border);
   text-align: center;
 }
-.hc-stamp .hc-line { font-style: italic; font-size: 19px; line-height: 1.6; color: var(--muted); }
+.hc-stamp .hc-line { font-size: 20px; font-style: italic; line-height: 1.6; color: var(--muted); }
 .hc-stamp .hc-brand {
-  margin-top: 14px;
+  margin-top: 16px;
   font-family: var(--font-heading);
   font-size: 11px;
   letter-spacing: 5px;
   color: var(--accent);
 }
 
-/* ---------- House cards (hub) ---------- */
-.house-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 18px;
-  margin-bottom: 40px;
-}
-.house-card {
-  display: flex;
-  flex-direction: column;
-  padding: 22px 20px 18px;
-  border: 1px solid var(--border);
-  border-top: 4px solid var(--h-deep);
-  border-radius: 10px;
-  background: linear-gradient(165deg, var(--panel-2), var(--panel));
-  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
-}
-a.house-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--h-bright);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.45), 0 0 26px var(--h-glow);
-  text-decoration: none;
-}
-.house-crest { font-size: 34px; line-height: 1; color: var(--h-bright); margin-bottom: 8px; }
-.house-name {
-  font-family: var(--font-heading);
-  font-size: 19px;
-  letter-spacing: 1.5px;
-  color: var(--text);
-  margin-bottom: 6px;
-}
-.house-meta { color: var(--muted); font-size: 16px; line-height: 1.5; margin-bottom: 12px; }
-.house-lord { font-size: 16px; color: var(--text); margin-bottom: 14px; }
-.house-lord span { display: block; font-style: italic; color: var(--h-bright); }
-.house-swatches { display: flex; gap: 6px; margin: auto 0 14px; padding-top: 4px; }
-.house-swatches span {
-  display: inline-block;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.22);
-}
-.house-enter {
-  font-family: var(--font-heading);
-  font-size: 12px;
-  letter-spacing: 3px;
-  color: var(--h-bright);
-}
-
-.house-card.duskryn  { --h-deep: #2f5a45; --h-bright: #7fb394; --h-glow: rgba(127,179,148,0.22); }
-.house-card.serevain { --h-deep: #8e1730; --h-bright: #e0506e; --h-glow: rgba(224,80,110,0.22); }
-.house-card.kharrow  { --h-deep: #1f2c3f; --h-bright: #6f97c4; --h-glow: rgba(111,151,196,0.22); }
-.house-card.elarith  { --h-deep: #3b3163; --h-bright: #b7a6e0; --h-glow: rgba(183,166,224,0.22); }
-
 /* ---------- House pages ---------- */
+.house-hero { display: flex; align-items: center; gap: 28px; margin-top: 6px; }
+.house-hero .house-sigil { width: 118px; height: 118px; margin: 0; flex-shrink: 0; }
+.house-hero .hc-eyebrow { margin-bottom: 6px; }
+.house-hero .u-title { margin: 0 0 4px; }
+
 .house-facts {
   list-style: none;
-  margin: 0 0 22px;
+  margin: 0 0 24px;
   padding: 0;
   max-width: 660px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
 }
 .house-facts li {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  gap: 16px;
-  padding: 10px 14px;
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--h-deep);
-  border-radius: 6px;
-  background: var(--panel-2);
+  gap: 18px;
+  padding: 12px 2px;
+  border-bottom: 1px dotted rgba(212,175,106,0.28);
 }
 .fact-label {
+  flex-shrink: 0;
   font-family: var(--font-heading);
   font-size: 11px;
-  letter-spacing: 3px;
-  color: var(--muted);
-  flex-shrink: 0;
+  letter-spacing: 4px;
+  color: var(--accent);
 }
-.fact-value { color: var(--text); text-align: right; }
+.fact-value { text-align: right; color: var(--text); }
 
-.char-card { border-top: 3px solid var(--h-deep); }
+.palette { display: flex; flex-wrap: wrap; gap: 26px; margin: 4px 0 18px; }
+.palette-item { width: 118px; text-align: center; }
+.orb {
+  width: 76px;
+  height: 76px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.28);
+  background:
+    radial-gradient(circle at 32% 26%, rgba(255,255,255,0.42), transparent 40%),
+    var(--c);
+  box-shadow: 0 0 26px -4px var(--c), inset 0 -10px 18px rgba(0,0,0,0.38);
+}
+.palette-name { font-family: var(--font-heading); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text); }
+.palette-hex { margin-top: 3px; font-family: ui-monospace, Consolas, monospace; font-size: 12px; color: var(--muted); }
+.palette-note { max-width: 660px; margin: 0; font-style: italic; color: var(--muted); }
 
-@media (max-width: 600px) {
+.char-card {
+  border: 1.5px solid transparent;
+  border-radius: 50% 50% 14px 14px / 90px 90px 14px 14px;
+  background:
+    linear-gradient(#130d17, #130d17) padding-box,
+    linear-gradient(165deg, var(--h-c1), var(--h-c2) 45%, var(--h-c3)) border-box;
+}
+.char-card .char-body { text-align: center; }
+.char-card .char-tags { justify-content: center; }
+.char-card .char-link { align-self: center; }
+
+@media (max-width: 640px) {
   .u-title { font-size: 26px; letter-spacing: 2px; }
-  .hc-quote { font-size: 19px; }
+  .hc-header .u-title { font-size: 28px; letter-spacing: 2px; }
+  .hc-quote { font-size: 20px; }
+  .hc-treaty { padding: 28px 22px 40px; }
+  .house-hero { flex-direction: column; text-align: center; }
+  .house-hero .u-title::after { margin-left: auto; margin-right: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before, body::after, .house-card, .house-sigil .ring, .arcane .a-outer, .arcane .a-inner {
+    animation: none !important;
+  }
 }
