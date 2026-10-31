@@ -1,0 +1,240 @@
+/* THE HOLLOW COVENANT — Briarcombe. modern gothic, demon houses, an ancient treaty. */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
+:root {
+  --bg: #0d090f;
+  --panel: #150e18;
+  --panel-2: #1c1321;
+  --border: rgba(212, 175, 106, 0.22);
+  --accent: #d4af6a;
+  --accent-2: #d9667f;
+  --text: #ece0e4;
+  --muted: #a8949f;
+  --h-deep: #5a2234;
+  --font-heading: 'Cinzel', serif;
+  --font-body: 'Cormorant Garamond', serif;
+}
+
+body {
+  font-size: 18px;
+  background:
+    radial-gradient(ellipse at 50% -8%, rgba(232,160,100,0.14), transparent 52%),
+    radial-gradient(ellipse at 12% 105%, rgba(201,84,108,0.12), transparent 50%),
+    radial-gradient(ellipse at 92% 60%, rgba(90,60,120,0.12), transparent 50%),
+    var(--bg);
+}
+
+/* ---------- Title / header ---------- */
+.u-title {
+  font-weight: 600;
+  letter-spacing: 4px;
+  font-size: 40px;
+}
+.u-title::after {
+  content: "";
+  display: block;
+  width: 90px;
+  height: 1px;
+  margin-top: 14px;
+  background: linear-gradient(to right, var(--accent), transparent);
+}
+.u-title .house-glyph { color: var(--accent); margin-right: 8px; font-size: 0.9em; }
+.u-tagline { font-size: 19px; font-style: italic; }
+
+.hc-header { text-align: center; }
+.hc-header .back-link { display: block; text-align: left; }
+.hc-header .u-title::after {
+  width: 180px;
+  margin: 14px auto 0;
+  background: linear-gradient(to right, transparent, var(--accent), transparent);
+}
+
+.hc-banner {
+  position: relative;
+  max-width: 900px;
+  margin: 6px auto 28px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.55), 0 0 44px rgba(201,84,108,0.14);
+}
+.hc-banner img { display: block; width: 100%; height: auto; }
+.hc-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 60%, rgba(13,9,15,0.7));
+  pointer-events: none;
+}
+
+.hc-eyebrow {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--accent-2);
+  margin-bottom: 10px;
+}
+.hc-kicker {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 6px 0 0;
+}
+.hc-quote {
+  max-width: 560px;
+  margin: 24px auto 0;
+  padding: 14px 24px;
+  border-left: 2px solid var(--accent);
+  border-right: 2px solid var(--accent);
+  background: rgba(212,175,106,0.05);
+  font-style: italic;
+  font-size: 22px;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+/* ---------- Sections ---------- */
+.section-heading {
+  font-size: 14px;
+  letter-spacing: 4px;
+}
+.section-heading::before { content: "\2726  "; color: var(--accent-2); }
+
+.hc-callout {
+  margin-top: 10px;
+  padding: 14px 18px;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent-2);
+  border-radius: 6px;
+  background: var(--panel-2);
+  font-style: italic;
+  color: var(--text);
+}
+.hc-callout strong {
+  display: block;
+  margin-bottom: 4px;
+  font-family: var(--font-heading);
+  font-style: normal;
+  font-size: 11px;
+  letter-spacing: 3px;
+  font-weight: 600;
+  color: var(--accent-2);
+}
+
+.hc-creator {
+  padding: 18px 20px;
+  border: 1px dashed var(--accent);
+  border-radius: 8px;
+  background: rgba(212,175,106,0.05);
+}
+.hc-creator p { margin: 0 0 12px; line-height: 1.75; }
+.hc-creator p:last-child { margin-bottom: 0; color: var(--muted); font-size: 16px; }
+
+.hc-stamp {
+  margin-top: 48px;
+  padding-top: 26px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+.hc-stamp .hc-line { font-style: italic; font-size: 19px; line-height: 1.6; color: var(--muted); }
+.hc-stamp .hc-brand {
+  margin-top: 14px;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  letter-spacing: 5px;
+  color: var(--accent);
+}
+
+/* ---------- House cards (hub) ---------- */
+.house-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+  margin-bottom: 40px;
+}
+.house-card {
+  display: flex;
+  flex-direction: column;
+  padding: 22px 20px 18px;
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--h-deep);
+  border-radius: 10px;
+  background: linear-gradient(165deg, var(--panel-2), var(--panel));
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+a.house-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--h-bright);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.45), 0 0 26px var(--h-glow);
+  text-decoration: none;
+}
+.house-crest { font-size: 34px; line-height: 1; color: var(--h-bright); margin-bottom: 8px; }
+.house-name {
+  font-family: var(--font-heading);
+  font-size: 19px;
+  letter-spacing: 1.5px;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.house-meta { color: var(--muted); font-size: 16px; line-height: 1.5; margin-bottom: 12px; }
+.house-lord { font-size: 16px; color: var(--text); margin-bottom: 14px; }
+.house-lord span { display: block; font-style: italic; color: var(--h-bright); }
+.house-swatches { display: flex; gap: 6px; margin: auto 0 14px; padding-top: 4px; }
+.house-swatches span {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.22);
+}
+.house-enter {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: var(--h-bright);
+}
+
+.house-card.duskryn  { --h-deep: #2f5a45; --h-bright: #7fb394; --h-glow: rgba(127,179,148,0.22); }
+.house-card.serevain { --h-deep: #8e1730; --h-bright: #e0506e; --h-glow: rgba(224,80,110,0.22); }
+.house-card.kharrow  { --h-deep: #1f2c3f; --h-bright: #6f97c4; --h-glow: rgba(111,151,196,0.22); }
+.house-card.elarith  { --h-deep: #3b3163; --h-bright: #b7a6e0; --h-glow: rgba(183,166,224,0.22); }
+
+/* ---------- House pages ---------- */
+.house-facts {
+  list-style: none;
+  margin: 0 0 22px;
+  padding: 0;
+  max-width: 660px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.house-facts li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--h-deep);
+  border-radius: 6px;
+  background: var(--panel-2);
+}
+.fact-label {
+  font-family: var(--font-heading);
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+.fact-value { color: var(--text); text-align: right; }
+
+.char-card { border-top: 3px solid var(--h-deep); }
+
+@media (max-width: 600px) {
+  .u-title { font-size: 26px; letter-spacing: 2px; }
+  .hc-quote { font-size: 19px; }
+}

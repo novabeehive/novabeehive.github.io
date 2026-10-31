@@ -260,6 +260,11 @@ hr.dotted {
 .universe-card.accent-er .u-enter { color: #c9a463; }
 .universe-card.accent-er:hover .u-name { color: #d9be8b; }
 
+.universe-card.accent-hc  { border-top-color: #c9546c; }
+.universe-card.accent-hc:hover  { border-color: #c9546c; box-shadow: 0 10px 28px rgba(201,84,108,0.22); }
+.universe-card.accent-hc .u-enter { color: #e07a8f; }
+.universe-card.accent-hc:hover .u-name { color: #f0a3b2; }
+
 .discord-line {
   margin-top: 10px;
   color: var(--muted);
