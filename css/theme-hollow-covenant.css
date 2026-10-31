@@ -334,6 +334,10 @@ a.house-card:hover .house-sigil .ring { animation-duration: 12s; }
 .house-rule::before { background: linear-gradient(to right, transparent, var(--h-bright)); }
 .house-rule::after  { background: linear-gradient(to left, transparent, var(--h-bright)); }
 .house-domain {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.9em;
   margin-bottom: 8px;
   font-family: var(--font-heading);
   font-size: 12px;
