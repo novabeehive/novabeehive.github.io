@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The World of Briarcombe // The Hollow Covenant</title>
+<link rel="stylesheet" href="../css/shared.css">
+<link rel="stylesheet" href="../css/theme-hollow-covenant.css?v=6">
+</head>
+<body>
+<div class="u-shell">
+
+  <header class="u-header hc-header">
+    <a class="back-link" href="../universes/hollow-covenant.html">&lt; back to The Hollow Covenant</a>
+    <div class="hc-title-wrap">
+      <div class="arcane" aria-hidden="true"><svg viewBox="0 0 400 400" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><g class="a-outer"><circle cx="200" cy="200" r="192"/><circle cx="200" cy="200" r="182" stroke-width="12" stroke-dasharray="1.4 11.3"/><circle cx="200" cy="200" r="166"/></g><g class="a-inner"><rect x="106" y="106" width="188" height="188"/><rect x="106" y="106" width="188" height="188" transform="rotate(45 200 200)"/><circle cx="200" cy="200" r="132"/><circle cx="200" cy="200" r="70"/></g></svg></div>
+      <div class="hc-eyebrow">The Hollow Covenant</div>
+      <h1 class="u-title">The World of Briarcombe</h1>
+      <p class="hc-kicker">Maps, places, and the lore beneath them.</p>
+    </div>
+  </header>
+
+  <main>
+    <h2 class="section-heading">THE CONCORDAT REALMS</h2>
+    <section class="section-block">
+      <figure class="hc-map" data-gallery>
+        <img src="../images/concordat-realms-map.webp" data-full="../images/concordat-realms-map.webp" onclick="openLightbox(this)" alt="Illustrated fantasy map titled The Concordat Realms: Briarcombe at the center, House Duskryn in the north, House Serevain in the south, House Kharrow on the western coast, and House Elarith in the east.">
+        <figcaption>tap the map to explore ✦</figcaption>
+      </figure>
+      <div class="hc-compass">
+        <div class="compass-item compass-center"><span class="compass-dir">CENTER</span><span class="compass-place">Briarcombe</span><span class="compass-desc">The main human settlement and seat of the Concordat Council.</span></div>
+        <a class="compass-item duskryn" href="../houses/duskryn.html"><span class="compass-dir">NORTH</span><span class="compass-place">House Duskryn</span><span class="compass-desc">The Black Orchard — dense forests and ancient wardstones.</span></a>
+        <a class="compass-item serevain" href="../houses/serevain.html"><span class="compass-dir">SOUTH</span><span class="compass-place">House Serevain</span><span class="compass-desc">The Crimson Court — prosperous estates and trade routes.</span></a>
+        <a class="compass-item kharrow" href="../houses/kharrow.html"><span class="compass-dir">WEST</span><span class="compass-place">House Kharrow</span><span class="compass-desc">Stormkeep — storm-battered cliffs and coastal fortifications.</span></a>
+        <a class="compass-item elarith" href="../houses/elarith.html"><span class="compass-dir">EAST</span><span class="compass-place">House Elarith</span><span class="compass-desc">The Moon Gardens — sacred groves and healing sanctuaries.</span></a>
+      </div>
+    </section>
+
+    <h2 class="section-heading">MORE WORLD LORE</h2>
+    <div class="placeholder-note">
+      ⚠ more of the world is still being written — history, The Drawing, supernatural biology, marriage traditions, and magical rules will be added here.
+    </div>
+    <div class="hc-topics">
+      <span class="hc-topic">History of the Concordat</span>
+      <span class="hc-topic">The Drawing</span>
+      <span class="hc-topic">Demon Biology</span>
+      <span class="hc-topic">Marriage Traditions</span>
+      <span class="hc-topic">Wards &amp; Magic</span>
+      <span class="hc-topic">Briarcombe Locations</span>
+    </div>
+
+    <div class="hc-stamp">
+      <div class="hc-line">Every house has its secrets.<br>Every promise has its price.</div>
+      <div class="hc-brand">✦ A NØVABEE ORIGINAL UNIVERSE ✦</div>
+    </div>
+  </main>
+
+</div>
+
+<div id="lightbox" class="lightbox-overlay" onclick="if(event.target===this) closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+  <button class="lightbox-nav prev" onclick="navLightbox(-1)">&lsaquo;</button>
+  <img id="lightbox-img" src="" alt="">
+  <button class="lightbox-nav next" onclick="navLightbox(1)">&rsaquo;</button>
+</div>
+
+<script src="../js/gallery.js"></script>
+</body>
+</html>

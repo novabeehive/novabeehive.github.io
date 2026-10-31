@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Hollow Covenant // NovaBee</title>
 <link rel="stylesheet" href="../css/shared.css">
-<link rel="stylesheet" href="../css/theme-hollow-covenant.css?v=5">
+<link rel="stylesheet" href="../css/theme-hollow-covenant.css?v=6">
 </head>
 <body>
 <div class="u-shell">
@@ -36,20 +36,15 @@
       <div class="hc-seal" aria-hidden="true">♜</div>
     </section>
 
-    <h2 class="section-heading">THE CONCORDAT REALMS</h2>
-    <section class="section-block">
-      <figure class="hc-map" data-gallery>
-        <img src="../images/concordat-realms-map.webp" data-full="../images/concordat-realms-map.webp" onclick="openLightbox(this)" alt="Illustrated fantasy map titled The Concordat Realms: Briarcombe at the center, House Duskryn in the north, House Serevain in the south, House Kharrow on the western coast, and House Elarith in the east.">
-        <figcaption>tap the map to explore ✦</figcaption>
-      </figure>
-      <div class="hc-compass">
-        <div class="compass-item compass-center"><span class="compass-dir">CENTER</span><span class="compass-place">Briarcombe</span><span class="compass-desc">The main human settlement and seat of the Concordat Council.</span></div>
-        <a class="compass-item duskryn" href="../houses/duskryn.html"><span class="compass-dir">NORTH</span><span class="compass-place">House Duskryn</span><span class="compass-desc">The Black Orchard — dense forests and ancient wardstones.</span></a>
-        <a class="compass-item serevain" href="../houses/serevain.html"><span class="compass-dir">SOUTH</span><span class="compass-place">House Serevain</span><span class="compass-desc">The Crimson Court — prosperous estates and trade routes.</span></a>
-        <a class="compass-item kharrow" href="../houses/kharrow.html"><span class="compass-dir">WEST</span><span class="compass-place">House Kharrow</span><span class="compass-desc">Stormkeep — storm-battered cliffs and coastal fortifications.</span></a>
-        <a class="compass-item elarith" href="../houses/elarith.html"><span class="compass-dir">EAST</span><span class="compass-place">House Elarith</span><span class="compass-desc">The Moon Gardens — sacred groves and healing sanctuaries.</span></a>
+    <a class="hc-worldlink" href="../worlds/briarcombe.html">
+      <img src="../images/concordat-realms-map.webp" alt="" loading="lazy">
+      <div class="hc-worldlink-body">
+        <div class="hc-worldlink-eyebrow">THE WORLD</div>
+        <div class="hc-worldlink-title">The Concordat Realms</div>
+        <div class="hc-worldlink-desc">Explore the full map of Briarcombe and the four territories — and the lore behind them.</div>
+        <div class="house-enter">EXPLORE THE WORLD ➜</div>
       </div>
-    </section>
+    </a>
 
     <h2 class="section-heading">THE FOUR RULING HOUSES</h2>
     <div class="house-grid">
@@ -114,13 +109,5 @@
   </main>
 
 </div>
-<div id="lightbox" class="lightbox-overlay" onclick="if(event.target===this) closeLightbox()">
-  <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
-  <button class="lightbox-nav prev" onclick="navLightbox(-1)">&lsaquo;</button>
-  <img id="lightbox-img" src="" alt="">
-  <button class="lightbox-nav next" onclick="navLightbox(1)">&rsaquo;</button>
-</div>
-
-<script src="../js/gallery.js"></script>
 </body>
 </html>
